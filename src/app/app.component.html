@@ -1,10 +1,19 @@
 <div>
   limit: <button (click)="store.decreaseLimit(10)">-</button>
-  {{ store.limit$ | async}}
+  {{ store.limit$ | async }}
   <button (click)="store.increaseLimit(10)">+</button>
 </div>
 <div>
   offset: <button (click)="store.decreaseOffset(10)">-</button>
-  {{ store.offset$ | async}}
+  {{ store.offset$ | async }}
   <button (click)="store.increaseOffset(10)">+</button>
+</div>
+<div>
+  <button (click)="store.loadPokemon()">loadPokemon</button>
+</div>
+<div>
+  <!-- {{ store.pokemons$ | async }} -->
+  <div *ngFor="let pokemon of store.pokemons$ | async">
+    {{ pokemon.name}}
+  </div>
 </div>
